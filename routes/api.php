@@ -16,3 +16,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//定义 Api 组的路由
+Route::get('foo_api', function () {
+    return "hello api";
+});

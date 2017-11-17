@@ -25,7 +25,17 @@ class RouteServiceProvider extends ServiceProvider
     {
         //
 
+        // 路由的全局约束
+        Route::pattern('id', '[0-9]+');
         parent::boot();
+
+        // 路由显示绑定
+        Route::model('users', \App\User::class);
+
+        // 路由自定义解析逻辑
+        Route::bind('name', function ($value) {
+            return \App\User::where('name', $value)->first();
+        });
     }
 
     /**
@@ -65,9 +75,10 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapApiRoutes()
     {
-        Route::prefix('api')
+        Route::prefix('api_test')
              ->middleware('api')
              ->namespace($this->namespace)
              ->group(base_path('routes/api.php'));
     }
+
 }
