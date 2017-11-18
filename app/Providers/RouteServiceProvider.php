@@ -23,8 +23,8 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
 
+        /*
         // 路由的全局约束
         Route::pattern('id', '[0-9]+');
         parent::boot();
@@ -36,6 +36,17 @@ class RouteServiceProvider extends ServiceProvider
         Route::bind('name', function ($value) {
             return \App\User::where('name', $value)->first();
         });
+        */
+        parent::boot();
+        /*
+        Route::model('name', \App\User::class);
+        */
+
+        /*
+        Route::bind('user', function ($value) {
+            return \App\User::where('name', $value)->find(3);
+        });
+        */
     }
 
     /**

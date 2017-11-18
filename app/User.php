@@ -26,4 +26,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /* 隐式路由绑定查询字段 name
+    public function getRouteKeyName()
+    {
+        return 'name';
+    }
+    */
 }

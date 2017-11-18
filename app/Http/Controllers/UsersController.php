@@ -7,9 +7,15 @@ use App\User;
 
 class UsersController extends Controller
 {
-    public function index(User $user)
+    /*
+    public function show(User $user)
     {
         dd($user->toArray());
-        return view('test', compact('user'));
+        //return view('test', compact('user'));
+    }
+    */
+    public function show($id)
+    {
+        return view('users.profile', ['user' => User::findOrFail($id)]);
     }
 }

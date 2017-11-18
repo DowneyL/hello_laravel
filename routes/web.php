@@ -11,10 +11,13 @@
 |
 */
 
+/*
 Route::get('/', function () {
     return view('welcome');
 });
+*/
 
+/*
 Route::get('/test', 'TestController@index');
 
 // 基本例子
@@ -31,6 +34,9 @@ Route::match(['get', 'post'], 'getorpost', function(){
 Route::any('any', function () {
     return "响应任意请求";
 });
+*/
+
+/*
 
 // 路由重定向
 Route::redirect('/here', '/there', 301);
@@ -39,6 +45,7 @@ Route::redirect('/here', '/there', 301);
 //Route::view('/welcome', 'welcome');
 // 视图路由传参
 Route::view('/welcome', 'welcome', ['name' => 'Taylor']);
+*/
 
 // 路由参数
 /*
@@ -112,6 +119,28 @@ Route::get('/user/{users}', 'UsersController@index');
 Route::get('/profile/{users}', 'ProfilesController@index');
 */
 
-Route::get('/user/{user}', 'UsersController@index');
+/*
+Route::get('/users/{name}', 'UsersController@show');
 
+Route::get('profile/{name}', function (\App\User $user){
+   dd($user->toArray());
+});
+*/
 
+Route::get('/', 'PagesController@home');
+
+Route::resource('users', 'UsersController', ['names' => ['create' => 'users.build']]);
+
+// 如果你想在默认的路由中增加额外的路由，你应该在 Route::resource 之前定义这些路由。否则由 resource 方法定义的
+// 路由可能会无意中优先于你补充的路由。
+Route::resource('photos', 'PhotosController');
+//Route::get('photos', 'PhotosController@test'); // 后面的路由会覆盖前面的路由。
+
+/*
+Route::get('avatars', function (\Illuminate\Http\Request $request) {
+   dd($request->url());
+});
+*/
+Route::get('avatars', 'PagesController@test');
+
+Route::resource('nick_names', 'NickNamesController', ['only' => ['index', 'store']]);

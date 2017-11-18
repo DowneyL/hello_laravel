@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Hello Laravel - {{ $name }} AragakiYui
+                    Hello Laravel - AragakiYui
                 </div>
         </div>
     </body>
