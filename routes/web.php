@@ -144,3 +144,16 @@ Route::get('avatars', function (\Illuminate\Http\Request $request) {
 Route::get('avatars', 'PagesController@test');
 
 Route::resource('nick_names', 'NickNamesController', ['only' => ['index', 'store']]);
+
+/*
+Route::get('/json', function () {
+   return array(
+      'name' => 'liheng',
+       'age' => '22',
+       'myjob' => 'PHP programar',
+   );
+});
+*/
+
+Route::get('avatar_api', 'PagesController@avatarApi');
+Route::get('help', 'PagesController@redirectUrl');

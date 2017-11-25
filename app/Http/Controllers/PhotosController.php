@@ -37,6 +37,8 @@ class PhotosController extends Controller
      */
     public function store(Request $request)
     {
+//        return back()->withInput(); // 必须要将数据带回去，才能取到
+
         $result = Photo::create($request->all());
         if ($request) {
             echo "Success";
