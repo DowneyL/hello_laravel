@@ -15,7 +15,40 @@ class PagesController extends Controller
 
     public function test()
     {
-        return 'This is a test function.';
+        /* 响应一个文件，不是下载
+        return response()
+            ->file('../storage/app/public/images/aragaki.jpg');
+        */
+
+        /* 下载文件，还真的可以下载喂
+        return response()
+                ->download('../storage/app/public/images/aragaki.jpg');
+        */
+
+        /* 使用 json 函数，响应会自动将头文件的类型修改为 application/json
+        return response()->json([
+            'name' => 'liheng',
+            'job' => 'PHP Programer',
+            'age' => '22',
+        ]);
+        */
+
+        /*
+        return response()
+            ->view('welcome', [1, 2]) // 这是返回这个视图，不是跳转。而且设置为 404 响应
+            ->header('Content-Type', 'application/json'); // 厉害了。
+        */
+
+//        return redirect('photos')->with('status', 'Some messages from "PagesControlle".'); // 重定向，并使用闪存的 Session 数据，这个只保存一次刷新就没有了。
+
+        /* 带参数重定向到路由控制器行为
+        return redirect()->action(
+            'PhotosController@show', ['od' => 3]
+        );
+        */
+
+//        return redirect()->action('PhotosController@index'); // 重定向到路由控制器行为
+//        return 'This is a test function.';
     }
 
     public function avatarApi(Photo $photo)

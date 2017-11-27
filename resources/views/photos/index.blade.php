@@ -1,8 +1,10 @@
 @extends('layouts.app')
 @section('content')
+    <h1>{{ session('status') }}</h1>
     @if( !empty($photos) )
         @foreach($photos as $photo)
             <h1><a href="{{ route('photos.show', $photo->id) }}">这是第 {{ $photo->id }} 个图片</a></h1>
+            <h2>{{ $kouei_name }}</h2>
             <div>
                 <ul>
                     <li>图片名称：{{ $photo->name }}</li>

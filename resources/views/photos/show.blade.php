@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <h1>这是第 {{ $photo->id }} 个图片</h1>
+    <h2>{{ $kouei_name }}</h2>
     <div>
         <ul>
             <li>图片名称：{{ $photo->name }}</li>
