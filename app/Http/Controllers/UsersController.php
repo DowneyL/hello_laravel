@@ -14,6 +14,11 @@ class UsersController extends Controller
         //return view('test', compact('user'));
     }
     */
+    public function index(User $user)
+    {
+        dd($user->toArray());
+    }
+
     public function show($id)
     {
         return view('users.profile', ['user' => User::findOrFail($id)]);

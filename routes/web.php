@@ -113,12 +113,9 @@ Route::namespace('Admin')->group(function () {
 
 // 关于路由隐形绑定和路由显示绑定
 
-/*
-Route::get('/user/{users}', 'UsersController@index');
+Route::get('/user/{user}/items', 'UsersController@index');
 
 Route::get('/profile/{users}', 'ProfilesController@index');
-*/
-
 /*
 Route::get('/users/{name}', 'UsersController@show');
 

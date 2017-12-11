@@ -55,6 +55,18 @@ class PhotosController extends Controller
      */
     public function show(Photo $photo)
     {
+        /*
+        // 获取上一个查询的完整 url
+        dd(url()->previous());
+
+        // 获取包含查询字符串的当前 url
+        dd(url()->full());
+
+        // 获取没有查询字符串的当前 url
+        // 例如 aragakiyui.app/photos/3?mod=navigation -> http://aragakiyui.app/photos/3
+        dd(url()->current());
+        */
+        
         return view('photos.show', compact('photo'));
     }
 

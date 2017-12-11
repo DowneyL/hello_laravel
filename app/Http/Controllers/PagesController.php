@@ -15,6 +15,39 @@ class PagesController extends Controller
 
     public function test()
     {
+        
+        /* 当然也可以用于跳转
+        return redirect()->action('PhotosController@show', 3);
+        */
+
+        /* 当然也可以传递 Eloquent 模型
+        dd(action('PhotosController@show', \App\Photo::first()));
+        */
+
+        /* 控制器路由，及其传参
+        dd(action('PhotosController@show', ['photo'=> 3]));
+        dd(action('PhotosController@show', ['id'=> 3]));
+        dd(action('PhotosController@show', [3]));
+        dd(action('PhotosController@show', 3));
+        */
+
+        /*
+        // 命名路由的 url
+        $photo = \App\Photo::first();
+        // dd(route('photos.show', ['photo' => 3]));
+        return redirect()->route('photos.show', ['photo' => 3]);
+        */
+
+        /* 向命名路由的 url 中直接传递 Eloquent 模型。
+        return redirect()->route('photos.show', \App\Photo::first());
+        */
+
+        /* 生成基础 url
+        $photo = \App\Photo::first();
+
+        return redirect(url("photos/{$photo->id}"));
+        */
+
         /* 响应一个文件，不是下载
         return response()
             ->file('../storage/app/public/images/aragaki.jpg');
